@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "./static/css/main.815b618b.css",
-    "main.js": "./static/js/main.ddaa3aa0.js",
-    "static/media/icon-2.svg": "./static/media/icon-2.75bbaeaf5e1e334e46fcc19a5d0607b5.svg",
-    "static/media/tasks-bg.jpg": "./static/media/tasks-bg.21320a44365637b41103.jpg",
-    "static/media/mates-bg.jpg": "./static/media/mates-bg.dd932d86e309ad478871.jpg",
-    "static/media/w-coin.svg": "./static/media/w-coin.d70607fedfe252e05aaf471872960faf.svg",
-    "static/media/icon-4.svg": "./static/media/icon-4.58607688157b03258b0b30e1bb22c71f.svg",
-    "static/media/Setting.svg": "./static/media/Setting.095df4ae31569fd890a32d6a8dbb7248.svg",
-    "static/media/Wallet.svg": "./static/media/Wallet.47c0370ca4759e796c7aaee1ab0bfd33.svg",
-    "index.html": "./index.html",
-    "static/media/Discovery.svg": "./static/media/Discovery.b74f68931cde8baa380c6217165679a2.svg",
-    "main.815b618b.css.map": "./static/css/main.815b618b.css.map",
-    "main.ddaa3aa0.js.map": "./static/js/main.ddaa3aa0.js.map"
+    "main.css": "/alohomora/static/css/main.815b618b.css",
+    "main.js": "/alohomora/static/js/main.c5df972e.js",
+    "static/media/icon-2.svg": "/alohomora/static/media/icon-2.75bbaeaf5e1e334e46fcc19a5d0607b5.svg",
+    "static/media/tasks-bg.jpg": "/alohomora/static/media/tasks-bg.21320a44365637b41103.jpg",
+    "static/media/mates-bg.jpg": "/alohomora/static/media/mates-bg.dd932d86e309ad478871.jpg",
+    "static/media/w-coin.svg": "/alohomora/static/media/w-coin.d70607fedfe252e05aaf471872960faf.svg",
+    "static/media/icon-4.svg": "/alohomora/static/media/icon-4.58607688157b03258b0b30e1bb22c71f.svg",
+    "static/media/Setting.svg": "/alohomora/static/media/Setting.095df4ae31569fd890a32d6a8dbb7248.svg",
+    "static/media/Wallet.svg": "/alohomora/static/media/Wallet.47c0370ca4759e796c7aaee1ab0bfd33.svg",
+    "index.html": "/alohomora/index.html",
+    "static/media/Discovery.svg": "/alohomora/static/media/Discovery.b74f68931cde8baa380c6217165679a2.svg",
+    "main.815b618b.css.map": "/alohomora/static/css/main.815b618b.css.map",
+    "main.c5df972e.js.map": "/alohomora/static/js/main.c5df972e.js.map"
   },
   "entrypoints": [
     "static/css/main.815b618b.css",
-    "static/js/main.ddaa3aa0.js"
+    "static/js/main.c5df972e.js"
   ]
 }
