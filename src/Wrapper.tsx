@@ -1,6 +1,10 @@
 import { FC, DispatchWithoutAction, useState } from 'react';
 import {
+<<<<<<< HEAD
   createBrowserRouter,
+=======
+  createHashRouter,
+>>>>>>> 0754376 (test)
   RouterProvider,
 } from 'react-router-dom';
 
@@ -23,6 +27,7 @@ import PageClaim from './PageClaim';
 import PageMates from './PageMates';
 import PageTasks from './PageTasks';
 
+<<<<<<< HEAD
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +40,22 @@ const router = createBrowserRouter([
   {
     path: "/tasks",
     element: <PageTasks />,
+=======
+const router = createHashRouter([
+  {
+    path: "/",
+    element: <PageClaim />,
+    children: [
+      {
+        path: "mates",
+        element: <PageMates />,
+      },
+      {
+        path: "/tasks",
+        element: <PageTasks />,
+      },
+    ],
+>>>>>>> 0754376 (test)
   },
 ]);
 

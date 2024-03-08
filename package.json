@@ -8,6 +8,10 @@
     "@types/react-dom": "^18.0.9",
     "@vkruglikov/react-telegram-web-app": "^2.1.1",
     "antd": "^5.0.1",
+<<<<<<< HEAD
+=======
+    "gh-pages": "^6.1.1",
+>>>>>>> 0754376 (test)
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
@@ -17,6 +21,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+<<<<<<< HEAD
+=======
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b main -d build",
+>>>>>>> 0754376 (test)
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -25,7 +34,11 @@
       "react-app"
     ]
   },
+<<<<<<< HEAD
   "homepage": ".",
+=======
+  "homepage": "https://yevgenyofer.github.io/alohomora",
+>>>>>>> 0754376 (test)
   "browserslist": {
     "production": [
       ">0.2%",
