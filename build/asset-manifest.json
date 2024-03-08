@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "./static/css/main.04ab846b.css",
+    "main.js": "./static/js/main.29b2860a.js",
+    "static/media/w-coin.svg": "./static/media/w-coin.d70607fedfe252e05aaf471872960faf.svg",
+    "static/media/Setting.svg": "./static/media/Setting.095df4ae31569fd890a32d6a8dbb7248.svg",
+    "static/media/Wallet.svg": "./static/media/Wallet.47c0370ca4759e796c7aaee1ab0bfd33.svg",
+    "index.html": "./index.html",
+    "static/media/Discovery.svg": "./static/media/Discovery.b74f68931cde8baa380c6217165679a2.svg",
+    "main.04ab846b.css.map": "./static/css/main.04ab846b.css.map",
+    "main.29b2860a.js.map": "./static/js/main.29b2860a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.04ab846b.css",
+    "static/js/main.29b2860a.js"
+  ]
+}
