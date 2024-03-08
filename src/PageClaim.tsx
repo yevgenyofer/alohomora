@@ -23,11 +23,11 @@ const PageClaim: FC<{}> = () => {
           <button className="main-button" onClick={handleIncrement}>Claim</button>
         </div>
         <div className="bottom-nav">
-          <a href="">
+          <a href="/mates">
             <h3>👨‍🚀</h3>
             <span>Mates</span>
           </a>
-          <a href="">
+          <a href="/tasks">
             <h3>🚀</h3>
             <span>Tasks</span>
           </a>

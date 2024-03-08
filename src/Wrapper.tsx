@@ -1,4 +1,8 @@
 import { FC, DispatchWithoutAction, useState } from 'react';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom';
 
 import {
   useThemeParams,
@@ -15,6 +19,23 @@ import ScanQrPopupDemo from './ScanQrPopupDemo';
 import ExpandDemo from './ExpandDemo';
 import useBetaVersion from './useBetaVersion';
 import PageClaim from './PageClaim';
+import PageMates from './PageMates';
+import PageTasks from './PageTasks';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <PageClaim />,
+  },
+  {
+    path: "/mates",
+    element: <PageMates />,
+  },
+  {
+    path: "/tasks",
+    element: <PageTasks />,
+  },
+]);
 
 const Wrapper: FC<{
   onChangeTransition: DispatchWithoutAction;
@@ -42,7 +63,7 @@ const Wrapper: FC<{
             : undefined
         }
       >
-        <PageClaim />
+        <RouterProvider router={router} />
         {/* <div className="contentWrapper"> */}
           {/* {isBetaVersion && (
             <div className="betaVersion">
