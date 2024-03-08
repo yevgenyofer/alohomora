@@ -1,10 +1,14 @@
 import { FC, DispatchWithoutAction, useState } from 'react';
 import {
 <<<<<<< HEAD
+<<<<<<< HEAD
   createBrowserRouter,
 =======
   createHashRouter,
 >>>>>>> 0754376 (test)
+=======
+  createBrowserRouter,
+>>>>>>> 8762c21 (test)
   RouterProvider,
 } from 'react-router-dom';
 
@@ -27,6 +31,7 @@ import PageClaim from './PageClaim';
 import PageMates from './PageMates';
 import PageTasks from './PageTasks';
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 const router = createBrowserRouter([
   {
@@ -56,6 +61,20 @@ const router = createHashRouter([
       },
     ],
 >>>>>>> 0754376 (test)
+=======
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <PageClaim />,
+  },
+  {
+    path: "/mates",
+    element: <PageMates />,
+  },
+  {
+    path: "/tasks",
+    element: <PageTasks />,
+>>>>>>> 8762c21 (test)
   },
 ]);
 
