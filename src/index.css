@@ -194,6 +194,7 @@ code {
 
 .page-tasks .content .list .items {
   max-height: 100%;
+  height: auto;
 }
 
 .page-tasks .content .list .item {
