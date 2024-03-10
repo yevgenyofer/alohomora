@@ -9,7 +9,7 @@ const PageClaim: FC<{}> = () => {
 
   const handleIncrement = () => {
     impactOccurred('heavy');
-    setBalance(balance + 1);
+    // setBalance(balance + 1);
   }
 
   const [impactOccurred, notificationOccurred, selectionChanged] = useHapticFeedback();
@@ -25,6 +25,9 @@ const PageClaim: FC<{}> = () => {
         <div className="box claim">
           <span>Next drop available in 52:23</span>
           <br />
+          <button onClick={() => impactOccurred('heavy')}>
+            impactOccurred
+          </button>
           <button className="main-button" onClick={handleIncrement}>Claim</button>
         </div>
         <div className="bottom-nav">
