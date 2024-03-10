@@ -1,6 +1,6 @@
-import { FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 
-import bg from './mates-bg.jpg';
+const bg = require('./mates-bg.jpg') as string;
 
 interface Mate {
   username: string;

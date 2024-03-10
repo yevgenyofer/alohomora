@@ -1,10 +1,10 @@
-import { FC, useState } from 'react';
+import React, { FC } from 'react';
 
-import bg from './tasks-bg.jpg';
-import icon1 from './icon-2.svg';
-import icon2 from './icon-2.svg';
-import icon3 from './icon-4.svg';
-import icon4 from './icon-4.svg';
+const bg = require('./tasks-bg.jpg') as string;
+const icon1 = require('./icon-2.svg') as string;
+const icon2 = require('./icon-2.svg') as string;
+const icon3 = require('./icon-4.svg') as string;
+const icon4 = require('./icon-4.svg') as string;
 
 const PageTasks: FC<{}> = () => {
 

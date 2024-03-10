@@ -1,17 +1,5 @@
-import { FC, DispatchWithoutAction, useState } from 'react';
-import {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  createBrowserRouter,
-=======
-  createHashRouter,
->>>>>>> 0754376 (test)
-=======
-  createBrowserRouter,
->>>>>>> 8762c21 (test)
-  RouterProvider,
-} from 'react-router-dom';
-
+import React, { FC, DispatchWithoutAction, useState } from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import {
   useThemeParams,
 } from '@vkruglikov/react-telegram-web-app';
@@ -30,53 +18,6 @@ import useBetaVersion from './useBetaVersion';
 import PageClaim from './PageClaim';
 import PageMates from './PageMates';
 import PageTasks from './PageTasks';
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <PageClaim />,
-  },
-  {
-    path: "/mates",
-    element: <PageMates />,
-  },
-  {
-    path: "/tasks",
-    element: <PageTasks />,
-=======
-const router = createHashRouter([
-  {
-    path: "/",
-    element: <PageClaim />,
-    children: [
-      {
-        path: "mates",
-        element: <PageMates />,
-      },
-      {
-        path: "/tasks",
-        element: <PageTasks />,
-      },
-    ],
->>>>>>> 0754376 (test)
-=======
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <PageClaim />,
-  },
-  {
-    path: "/mates",
-    element: <PageMates />,
-  },
-  {
-    path: "/tasks",
-    element: <PageTasks />,
->>>>>>> 8762c21 (test)
-  },
-]);
 
 const Wrapper: FC<{
   onChangeTransition: DispatchWithoutAction;
@@ -104,7 +45,14 @@ const Wrapper: FC<{
             : undefined
         }
       >
-        <RouterProvider router={router} />
+        <HashRouter>
+          <Routes>
+            <Route path="/" element={<PageClaim />}></Route>
+            <Route path="/mates" element={<PageMates />}></Route>
+            <Route path="/tasks" element={<PageTasks />}></Route>
+            <Route path="*" element={<PageClaim />}></Route>
+          </Routes>
+        </HashRouter>
         {/* <div className="contentWrapper"> */}
           {/* {isBetaVersion && (
             <div className="betaVersion">
