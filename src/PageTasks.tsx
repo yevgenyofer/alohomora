@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
 const bg = require('./tasks-bg.jpg') as string;
-const icon1 = require('./icon-2.svg') as string;
-const icon2 = require('./icon-2.svg') as string;
-const icon3 = require('./icon-4.svg') as string;
-const icon4 = require('./icon-4.svg') as string;
+const icon1 = require('./icon-1.svg').default as string;
+const icon2 = require('./icon-2.svg').default as string;
+const icon3 = require('./icon-3.svg').default as string;
+const icon4 = require('./icon-4.svg').default as string;
 
 const PageTasks: FC<{}> = () => {
 
