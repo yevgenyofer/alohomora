@@ -1,13 +1,18 @@
 import React, { FC, useState } from 'react';
 import Header from './Header';
 
+import { useHapticFeedback } from '@vkruglikov/react-telegram-web-app';
+
 const PageClaim: FC<{}> = () => {
 
   const [balance, setBalance] = useState(0);
 
   const handleIncrement = () => {
+    impactOccurred('heavy');
     setBalance(balance + 1);
   }
+
+  const [impactOccurred, notificationOccurred, selectionChanged] = useHapticFeedback();
 
   return (
     <div className="page page-claim">
