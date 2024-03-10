@@ -9,7 +9,7 @@ const PageClaim: FC<{}> = () => {
 
   const handleIncrement = () => {
     impactOccurred('heavy');
-    setBalance(balance + 1);
+    // setBalance(balance + 1);
   }
 
   const [impactOccurred, notificationOccurred, selectionChanged] = useHapticFeedback();
