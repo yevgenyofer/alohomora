@@ -36,11 +36,11 @@ const PageClaim: FC<{}> = () => {
             <h3>🚀</h3>
             <span>Tasks</span>
           </a>
-          <a href="">
+          <a href="#/staking">
             <h3>🏦</h3>
             <span>Staking</span>
           </a>
-          <a href="">
+          <a href="#/jackpot">
             <h3>💰</h3>
             <span>52k</span>
           </a>

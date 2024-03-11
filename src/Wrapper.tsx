@@ -2,6 +2,7 @@ import React, { FC, DispatchWithoutAction, useState } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import {
   useThemeParams,
+  useExpand,
 } from '@vkruglikov/react-telegram-web-app';
 
 import { ConfigProvider, theme } from 'antd';
@@ -18,6 +19,9 @@ import useBetaVersion from './useBetaVersion';
 import PageClaim from './PageClaim';
 import PageMates from './PageMates';
 import PageTasks from './PageTasks';
+import PageStaking from './PageStaking';
+import PageDashboard from './PageDashboard';
+import PageJackpot from './PageJackpot';
 
 const Wrapper: FC<{
   onChangeTransition: DispatchWithoutAction;
@@ -25,6 +29,9 @@ const Wrapper: FC<{
   const [colorScheme, themeParams] = useThemeParams();
   const [isBetaVersion, handleRequestBeta] = useBetaVersion(false);
   const [activeBtn, setActiveBtn] = useState(true);
+
+  const [isExpanded, expand] = useExpand();
+  expand();
 
   return (
     <div>
@@ -50,6 +57,9 @@ const Wrapper: FC<{
             <Route path="/" element={<PageClaim />}></Route>
             <Route path="/mates" element={<PageMates />}></Route>
             <Route path="/tasks" element={<PageTasks />}></Route>
+            <Route path="/staking" element={<PageStaking />}></Route>
+            <Route path="/dashboard" element={<PageDashboard />}></Route>
+            <Route path="/jackpot" element={<PageJackpot />}></Route>
             <Route path="*" element={<PageClaim />}></Route>
           </Routes>
         </HashRouter>
