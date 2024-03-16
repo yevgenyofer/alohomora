@@ -1,4 +1,4 @@
-import React, { FC, DispatchWithoutAction, useState } from 'react';
+import React, { FC, DispatchWithoutAction } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import {
   useThemeParams,
@@ -7,15 +7,6 @@ import {
 
 import { ConfigProvider, theme } from 'antd';
 
-
-import Header from './Header';
-import MainButtonDemo from './MainButtonDemo';
-import BackButtonDemo from './BackButtonDemo';
-import ShowPopupDemo from './ShowPopupDemo';
-import HapticFeedbackDemo from './HapticFeedbackDemo';
-import ScanQrPopupDemo from './ScanQrPopupDemo';
-import ExpandDemo from './ExpandDemo';
-import useBetaVersion from './useBetaVersion';
 import PageClaim from './PageClaim';
 import PageMates from './PageMates';
 import PageTasks from './PageTasks';
@@ -27,9 +18,6 @@ const Wrapper: FC<{
   onChangeTransition: DispatchWithoutAction;
 }> = ({ onChangeTransition }) => {
   const [colorScheme, themeParams] = useThemeParams();
-  const [isBetaVersion, handleRequestBeta] = useBetaVersion(false);
-  const [activeBtn, setActiveBtn] = useState(true);
-
   const [isExpanded, expand] = useExpand();
   expand();
 

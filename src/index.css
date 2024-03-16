@@ -17,6 +17,8 @@ body {
   background: var(--tg-theme-secondary-bg-color);
   padding: 0;
   margin: 0;
+  max-height: 100vh;
+  overflow: hidden;
   font-family: var(--default-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

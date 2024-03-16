@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/alohomora/static/css/main.b9228d13.css",
-    "main.js": "/alohomora/static/js/main.f9a4d369.js",
+    "main.css": "/alohomora/static/css/main.df18217e.css",
+    "main.js": "/alohomora/static/js/main.417e68e0.js",
     "static/media/icon-2.svg": "/alohomora/static/media/icon-2.75bbaeaf5e1e334e46fcc19a5d0607b5.svg",
     "static/media/jackpot.jpg": "/alohomora/static/media/jackpot.e6947f4e15af040b3bec.jpg",
     "static/media/icon-3.svg": "/alohomora/static/media/icon-3.9643233ed628d6e2611a3a48d633d3fa.svg",
@@ -10,10 +10,10 @@
     "static/media/mates-bg.jpg": "/alohomora/static/media/mates-bg.dd932d86e309ad478871.jpg",
     "static/media/staking-bg.jpg": "/alohomora/static/media/staking-bg.3f30fc96ef8f60bc3f43.jpg",
     "static/media/staking-placeholder.svg": "/alohomora/static/media/staking-placeholder.f6a0d09d5cd96e8339bd45dab48a943e.svg",
-    "static/media/staking-option-3.svg": "/alohomora/static/media/staking-option-3.17ca51e6bdc5e38e42b5d594d4f69b27.svg",
+    "static/media/staking-option-3.svg": "/alohomora/static/media/staking-option-3.66082665db4e9bb44b3b8d2b897a037a.svg",
+    "static/media/staking-option-2.svg": "/alohomora/static/media/staking-option-2.07f7e7b3ece75999f1759e5e9cbae423.svg",
+    "static/media/staking-option-1.svg": "/alohomora/static/media/staking-option-1.01ad43101c74ba052148fc9aa69ed1c7.svg",
     "static/media/dashboard-bg.svg": "/alohomora/static/media/dashboard-bg.3cb437264c4035ec5f2ff9f76575075c.svg",
-    "static/media/staking-option-2.svg": "/alohomora/static/media/staking-option-2.a997175c5aa95597fba2b7c2979326a7.svg",
-    "static/media/staking-option-1.svg": "/alohomora/static/media/staking-option-1.8f500b740a76e274f8e8acf867faa14e.svg",
     "static/media/placeholder-1.svg": "/alohomora/static/media/placeholder-1.4e49d77c1947bdcfa0659d6fd1b380cb.svg",
     "static/media/w-coin.svg": "/alohomora/static/media/w-coin.d70607fedfe252e05aaf471872960faf.svg",
     "static/media/icon-4.svg": "/alohomora/static/media/icon-4.58607688157b03258b0b30e1bb22c71f.svg",
@@ -21,11 +21,11 @@
     "static/media/Wallet.svg": "/alohomora/static/media/Wallet.47c0370ca4759e796c7aaee1ab0bfd33.svg",
     "index.html": "/alohomora/index.html",
     "static/media/Discovery.svg": "/alohomora/static/media/Discovery.b74f68931cde8baa380c6217165679a2.svg",
-    "main.b9228d13.css.map": "/alohomora/static/css/main.b9228d13.css.map",
-    "main.f9a4d369.js.map": "/alohomora/static/js/main.f9a4d369.js.map"
+    "main.df18217e.css.map": "/alohomora/static/css/main.df18217e.css.map",
+    "main.417e68e0.js.map": "/alohomora/static/js/main.417e68e0.js.map"
   },
   "entrypoints": [
-    "static/css/main.b9228d13.css",
-    "static/js/main.f9a4d369.js"
+    "static/css/main.df18217e.css",
+    "static/js/main.417e68e0.js"
   ]
 }

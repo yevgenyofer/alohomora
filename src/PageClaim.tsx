@@ -1,11 +1,15 @@
 import React, { FC, useState } from 'react';
 import Header from './Header';
 
-import { useHapticFeedback } from '@vkruglikov/react-telegram-web-app';
+import { useHapticFeedback, useInitData  } from '@vkruglikov/react-telegram-web-app';
 
 const PageClaim: FC<{}> = () => {
 
   const [balance, setBalance] = useState(0);
+
+  const [initDataUnsafe] = useInitData();
+
+  const user = initDataUnsafe?.user;
 
   const handleIncrement = () => {
     impactOccurred('heavy');
@@ -23,7 +27,8 @@ const PageClaim: FC<{}> = () => {
           <h1>{balance}</h1>
         </div>
         <div className="box claim">
-          <span>Next drop available in 52:23</span>
+          {/* <span>Next drop available in 52:23</span> */}
+          <span>{JSON.stringify(user)}</span>
           <br />
           <button className="main-button" onClick={handleIncrement}>Claim</button>
         </div>
