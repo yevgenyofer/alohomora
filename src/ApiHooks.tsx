@@ -1,4 +1,5 @@
 import { WebAppUser } from '@vkruglikov/react-telegram-web-app';
+import { Console } from 'console';
 import { useState, useEffect } from 'react';
 
 const REACT_APP_API_TOKEN = process.env.REACT_APP_API_TOKEN;
@@ -60,11 +61,12 @@ const useFetchOrCreateUser = (tgUser: WebAppUser | undefined) => {
       })
       .catch(error => {
         console.error('Error:', error);
+        window.location.reload();
         setLoading(false);
       });
   }, [userId]);
 
-return { loading, data: data as unknown as IApiUser };
+    return { loading, data: data as unknown as IApiUser };
 };
 
 const useUpdateUser = () => {
