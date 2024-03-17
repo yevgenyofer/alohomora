@@ -1,22 +1,42 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Header from './Header';
 
 import { useHapticFeedback, useInitData  } from '@vkruglikov/react-telegram-web-app';
+import { useFetchOrCreateUser, useUpdateUser } from './ApiHooks';
+
 
 const PageClaim: FC<{}> = () => {
+  const [impactOccurred, notificationOccurred, selectionChanged] = useHapticFeedback();
+  const [initDataUnsafe] = useInitData();
+  const dummyUser = {
+    id: 1234567,
+    first_name: "Dummy",
+    last_name: "User",
+    username: "dummyuser",
+  };
+  const tgUser = initDataUnsafe?.user || dummyUser;
+  const { loading: loadingUser, data: user } = useFetchOrCreateUser(tgUser);
+  const { loading: updatingUser, updateUser } = useUpdateUser();
 
   const [balance, setBalance] = useState(0);
 
-  const [initDataUnsafe] = useInitData();
-
-  const user = initDataUnsafe?.user;
+  useEffect(() => {
+    console.log(user)
+    if (user && user.attributes) {
+      setBalance(Number(user.attributes?.clicks) || 0);
+    }
+  }, [user]);
 
   const handleIncrement = () => {
     impactOccurred('heavy');
-    setBalance(balance + 1);
+    const updatedClicks = Number(balance) + 1;
+    updateUser(user.id, { clicks: updatedClicks });
+    setBalance(updatedClicks);
   }
 
-  const [impactOccurred, notificationOccurred, selectionChanged] = useHapticFeedback();
+  if (loadingUser) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="page page-claim">

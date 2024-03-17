@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/alohomora/static/css/main.df18217e.css",
-    "main.js": "/alohomora/static/js/main.417e68e0.js",
+    "main.js": "/alohomora/static/js/main.a9651cbe.js",
     "static/media/icon-2.svg": "/alohomora/static/media/icon-2.75bbaeaf5e1e334e46fcc19a5d0607b5.svg",
     "static/media/jackpot.jpg": "/alohomora/static/media/jackpot.e6947f4e15af040b3bec.jpg",
     "static/media/icon-3.svg": "/alohomora/static/media/icon-3.9643233ed628d6e2611a3a48d633d3fa.svg",
@@ -22,10 +22,10 @@
     "index.html": "/alohomora/index.html",
     "static/media/Discovery.svg": "/alohomora/static/media/Discovery.b74f68931cde8baa380c6217165679a2.svg",
     "main.df18217e.css.map": "/alohomora/static/css/main.df18217e.css.map",
-    "main.417e68e0.js.map": "/alohomora/static/js/main.417e68e0.js.map"
+    "main.a9651cbe.js.map": "/alohomora/static/js/main.a9651cbe.js.map"
   },
   "entrypoints": [
     "static/css/main.df18217e.css",
-    "static/js/main.417e68e0.js"
+    "static/js/main.a9651cbe.js"
   ]
 }
