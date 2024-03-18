@@ -1,15 +1,15 @@
-import React, { FC, useState } from 'react';
+import React from 'react';
 
 import { useHapticFeedback } from '@vkruglikov/react-telegram-web-app';
 import { useWizard } from 'react-use-wizard';
 
-const bg = require('./placeholder-1.svg').default as string;
+const bg = require('./img/placeholder-1.svg').default as string;
 
 // interface StakingStep1Props {
 //   nextStep: () => void;
 // }
 
-const StakingStep3: FC = ({}) => {
+export const StakingStep3: React.FC = () => {
 
   // const handleIncrement = () => {
   //   impactOccurred('heavy');
@@ -20,7 +20,7 @@ const StakingStep3: FC = ({}) => {
 
   const { nextStep, previousStep } = useWizard();
 
-  const [sliderValue, setSliderValue] = useState(0); // initial slider value
+  const [sliderValue, setSliderValue] = React.useState(0); // initial slider value
 
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSliderValue(Number(event.target.value));
@@ -53,5 +53,3 @@ const StakingStep3: FC = ({}) => {
     </>
   );
 };
-
-export default StakingStep3;

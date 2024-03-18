@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 
 import { useHapticFeedback } from '@vkruglikov/react-telegram-web-app';
 
-const bg = require('./jackpot.jpg') as string;
+const bg = require('./img/jackpot.jpg') as string;
 
-const PageJackpot: FC<{}> = () => {
+export const PageJackpot: FC<{}> = () => {
 
   // const handleIncrement = () => {
   //   impactOccurred('heavy');
@@ -21,5 +21,3 @@ const PageJackpot: FC<{}> = () => {
     </div>
   );
 };
-
-export default PageJackpot;

@@ -1,19 +1,19 @@
-import React, { FC, useState } from 'react';
+import React from 'react';
 
 import { useHapticFeedback } from '@vkruglikov/react-telegram-web-app';
 import { useWizard } from 'react-use-wizard';
 
-const bg = require('./placeholder-1.svg').default as string;
+const bg = require('./img/placeholder-1.svg').default as string;
 
-const stakingOption1 = require('./staking-option-1.svg').default as string;
-const stakingOption2 = require('./staking-option-2.svg').default as string;
-const stakingOption3 = require('./staking-option-3.svg').default as string;
+const stakingOption1 = require('./img/staking-option-1.svg').default as string;
+const stakingOption2 = require('./img/staking-option-2.svg').default as string;
+const stakingOption3 = require('./img/staking-option-3.svg').default as string;
 
 // interface StakingStep1Props {
 //   nextStep: () => void;
 // }
 
-const StakingStep2: FC = ({}) => {
+export const StakingStep2: React.FC = () => {
 
   // const handleIncrement = () => {
   //   impactOccurred('heavy');
@@ -24,7 +24,7 @@ const StakingStep2: FC = ({}) => {
 
   const { nextStep, previousStep } = useWizard();
 
-  const [selectedDuration, setSelectedDuration] = useState<string | null>(null);
+  const [selectedDuration, setSelectedDuration] = React.useState<string | null>(null);
 
   const handleSelectDuration = (duration: string) => {
     setSelectedDuration(duration);
@@ -54,5 +54,3 @@ const StakingStep2: FC = ({}) => {
     </>
   );
 };
-
-export default StakingStep2;

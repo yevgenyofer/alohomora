@@ -4,6 +4,7 @@ import {
   useShowPopup,
 } from '@vkruglikov/react-telegram-web-app';
 
+// TODO: delete file
 const ScanQrPopupDemo = () => {
   const [showQrPopup, closeQrPopup] = useScanQrPopup();
   const showPopup = useShowPopup();

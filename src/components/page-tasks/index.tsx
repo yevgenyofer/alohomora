@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 
-const bg = require('./tasks-bg.jpg') as string;
-const icon1 = require('./icon-1.svg').default as string;
-const icon2 = require('./icon-2.svg').default as string;
-const icon3 = require('./icon-3.svg').default as string;
-const icon4 = require('./icon-4.svg').default as string;
+const bg = require('./img/tasks-bg.jpg') as string;
+const icon1 = require('./img/icon-1.svg').default as string;
+const icon2 = require('./img/icon-2.svg').default as string;
+const icon3 = require('./img/icon-3.svg').default as string;
+const icon4 = require('./img/icon-4.svg').default as string;
 
-const PageTasks: FC<{}> = () => {
+export const PageTasks: FC<{}> = () => {
 
   return (
     <div className="page page-1 page-tasks" style={{ backgroundImage: `url(${bg})` }}>
@@ -54,5 +54,3 @@ const PageTasks: FC<{}> = () => {
     </div>
   );
 };
-
-export default PageTasks;

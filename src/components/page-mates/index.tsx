@@ -1,32 +1,34 @@
 import React, { FC, useState } from 'react';
 
-const bg = require('./mates-bg.jpg') as string;
+const bg = require('./img/mates-bg.jpg') as string;
 
 interface Mate {
   username: string;
   balance: number;
 };
 
-const PageMates: FC<{}> = () => {
+const DEFAULT_MATES = [
+  {
+    username: "John",
+    balance: 1000
+  },
+  {
+    username: "Doe",
+    balance: 2000
+  },
+  {
+    username: "Jane",
+    balance: 3000
+  },
+  {
+    username: "Smith",
+    balance: 4000
+  }
+];
 
-  const [mates, setMates] = useState<Mate[]>([
-    {
-      username: "John",
-      balance: 1000
-    },
-    {
-      username: "Doe",
-      balance: 2000
-    },
-    {
-      username: "Jane",
-      balance: 3000
-    },
-    {
-      username: "Smith",
-      balance: 4000
-    }
-  ]);
+export const PageMates: FC<{}> = () => {
+
+  const [mates, setMates] = useState<Mate[]>(DEFAULT_MATES);
 
   return (
     <div className="page page-1" style={{ backgroundImage: `url(${bg})` }}>
@@ -55,5 +57,3 @@ const PageMates: FC<{}> = () => {
     </div>
   );
 };
-
-export default PageMates;

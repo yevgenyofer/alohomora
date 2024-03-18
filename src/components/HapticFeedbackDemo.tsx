@@ -6,6 +6,7 @@ import {
   useHapticFeedback,
 } from '@vkruglikov/react-telegram-web-app';
 
+// TODO: delete file
 const HapticFeedbackDemo: FC = () => {
   const [impactOccurred, notificationOccurred, selectionChanged] =
     useHapticFeedback();

@@ -4,6 +4,7 @@ import {
 } from '@vkruglikov/react-telegram-web-app';
 import { useRef, useState } from 'react';
 
+// TODO: delete file
 const useBetaVersion = (initialState = false) => {
   const showPopup = useShowPopup();
   const [, notification] = useHapticFeedback();

@@ -1,12 +1,12 @@
-import React, { FC, useState } from 'react';
+import React from 'react';
 
 import { useHapticFeedback } from '@vkruglikov/react-telegram-web-app';
 import { useNavigate } from 'react-router-dom';
 
-const bg = require('./staking-bg.jpg') as string;
-const contentBg = require('./dashboard-bg.svg').default as string;
+const bg = require('../../img/staking-bg.jpg') as string;
+const contentBg = require('./img/dashboard-bg.svg').default as string;
 
-const PageDashboard: FC<{}> = () => {
+export const PageDashboard: React.FC = () => {
 
   // const handleIncrement = () => {
   //   impactOccurred('heavy');
@@ -83,5 +83,3 @@ const PageDashboard: FC<{}> = () => {
     </div>
   );
 };
-
-export default PageDashboard;

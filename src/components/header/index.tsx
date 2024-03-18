@@ -1,13 +1,13 @@
-import { FC } from 'react';
+import React from 'react';
 
-import logo from './w-coin.svg';
+import logo from './img/w-coin.svg';
 
-import icon1 from './Discovery.svg';
-import icon2 from './Wallet.svg';
-import icon3 from './Setting.svg';
+import icon1 from './img/discovery.svg';
+import icon2 from './img/wallet.svg';
+import icon3 from './img/setting.svg';
 
 
-const Header: FC<{}> = () => {
+export const Header: React.FC<{}> = () => {
   return (
     <header className="header">
       <img
@@ -29,5 +29,3 @@ const Header: FC<{}> = () => {
     </header>
   );
 };
-
-export default Header;

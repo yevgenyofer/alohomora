@@ -5,6 +5,7 @@ import {
   useShowPopup,
 } from '@vkruglikov/react-telegram-web-app';
 
+// TODO: delete file
 const ShowPopupDemo: FC = () => {
   const showPopup = useShowPopup();
   const [popupState, setPopupState] = useState<
