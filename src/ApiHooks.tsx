@@ -1,5 +1,4 @@
 import { WebAppUser } from '@vkruglikov/react-telegram-web-app';
-import { Console } from 'console';
 import { useState, useEffect } from 'react';
 
 const REACT_APP_API_TOKEN = process.env.REACT_APP_API_TOKEN;

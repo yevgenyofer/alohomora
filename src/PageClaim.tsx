@@ -1,5 +1,6 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState, useCallback } from 'react';
 import Header from './Header';
+import { debounce } from 'lodash';
 
 import { useHapticFeedback, useInitData  } from '@vkruglikov/react-telegram-web-app';
 import { useFetchOrCreateUser, useUpdateUser } from './ApiHooks';
@@ -18,19 +19,45 @@ const PageClaim: FC<{}> = () => {
   const { loading: loadingUser, data: user } = useFetchOrCreateUser(tgUser);
   const { loading: updatingUser, updateUser } = useUpdateUser();
 
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState(() => {
+    // Get the initial balance from localStorage if it exists
+    const savedBalance = localStorage.getItem('balance');
+    return savedBalance ? Number(savedBalance) : 0;
+  });
+  const [prevBalance, setPrevBalance] = useState(balance);
+
+  const debouncedUpdate = useCallback(
+    debounce((balance) => {
+      updateUser(user.id, { clicks: balance });
+    }, 2000),
+    [updateUser, user?.id]
+  );
 
   useEffect(() => {
-    console.log(user)
+    // Clear the debounce when the component is unmounted
+    return () => {
+      debouncedUpdate.cancel();
+    };
+  }, [debouncedUpdate]);
+
+  useEffect(() => {
     if (user && user.attributes) {
       setBalance(Number(user.attributes?.clicks) || 0);
     }
   }, [user]);
 
+  useEffect(() => {
+    if (balance !== prevBalance) {
+      // Store the balance in localStorage whenever it changes
+      localStorage.setItem('balance', balance.toString());
+      debouncedUpdate(balance);
+      setPrevBalance(balance);
+    }
+  }, [balance, prevBalance, debouncedUpdate]);
+
   const handleIncrement = () => {
     impactOccurred('heavy');
     const updatedClicks = Number(balance) + 1;
-    updateUser(user.id, { clicks: updatedClicks });
     setBalance(updatedClicks);
   }
 
