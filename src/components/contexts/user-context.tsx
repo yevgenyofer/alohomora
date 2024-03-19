@@ -18,10 +18,8 @@ export const UserContext = React.createContext<TUserContext>({
     isLoading: false,
     isError: false,
     isSuccess: false,
-   
 });
 
-// export const userContext = () => React.useContext(UserContext);
 
 const DUMMY_USER: TCreateClientArgs = {
     telegram_id: 1234567,

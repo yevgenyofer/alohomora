@@ -7,6 +7,11 @@ type TAttributes = {
     last_name?: string;
     username?: string;
     clicks?: number;
+    referred_by?: number;
+    is_task_1_done?: boolean;
+    is_task_2_done?: boolean;
+    is_task_3_done?: boolean;
+    is_task_4_done?: boolean;
 }
 
 export type TUser = {
@@ -19,7 +24,8 @@ export type TClientResponse = {
 }
 
 export type TClientArgs = {
-    telegram_id: number;
+    telegram_id?: number;
+    id?: number;
 }
 
 export type TCreateClientArgs = {
@@ -82,11 +88,20 @@ const clientApi = baseApi.injectEndpoints({
             transformResponse: (response: TUser) => response,
             invalidatesTags: [EAPITagType.USERS]
         }),
+        getReferrals: builder.query<TClientResponse, TClientArgs>({
+            query: (queryArg) => ({
+                url: `${REACT_APP_API_ENDPOINT}/api/telegram-users?filters[referred_by][$eq]=${queryArg.id}`,
+                method: 'GET',
+            }),
+            transformResponse: (response: TClientResponse) => response,
+            providesTags: [EAPITagType.USERS]
+        }),
     }),
 });
 
 export const {
     useGetClientQuery,
     useCreateClientMutation,
-    useUpdateClientMutation
+    useUpdateClientMutation,
+    useGetReferralsQuery,
 } = clientApi;

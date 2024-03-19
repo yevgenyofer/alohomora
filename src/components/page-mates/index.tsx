@@ -1,34 +1,11 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
+import { usePageMatesApi } from './hooks';
 
 const bg = require('./img/mates-bg.jpg') as string;
 
-interface Mate {
-  username: string;
-  balance: number;
-};
-
-const DEFAULT_MATES = [
-  {
-    username: "John",
-    balance: 1000
-  },
-  {
-    username: "Doe",
-    balance: 2000
-  },
-  {
-    username: "Jane",
-    balance: 3000
-  },
-  {
-    username: "Smith",
-    balance: 4000
-  }
-];
-
 export const PageMates: FC<{}> = () => {
 
-  const [mates, setMates] = useState<Mate[]>(DEFAULT_MATES);
+  const {isLoading, mates, user} = usePageMatesApi();
 
   return (
     <div className="page page-1" style={{ backgroundImage: `url(${bg})` }}>

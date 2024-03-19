@@ -5,6 +5,7 @@ import { ConfigProvider, theme } from 'antd';
 
 import { Routers } from '../routers';
 import { useWrapperApi } from './hooks';
+import { BackButton } from '@vkruglikov/react-telegram-web-app';
 
 const Wrapper: FC<{
   onChangeTransition: DispatchWithoutAction;
@@ -33,6 +34,7 @@ const Wrapper: FC<{
         }
       >
         <Routers />
+        <BackButton />
       </ConfigProvider>
     </div>
   );
