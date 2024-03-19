@@ -19,11 +19,11 @@ export type TClientResponse = {
 }
 
 export type TClientArgs = {
-    userId: number;
+    telegram_id: number;
 }
 
 export type TCreateClientArgs = {
-    id: number,
+    telegram_id: number,
     first_name: string,
     last_name: string,
     username: string,
@@ -36,14 +36,13 @@ type TCreateClientArgsResponse = {
 
 interface TUpdateClientArgs extends TAttributes {
     id: number;
-    
 }
 
 const clientApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
         getClient: builder.query<TClientResponse, TClientArgs>({
             query: (queryArg) => ({
-                url: `${REACT_APP_API_ENDPOINT}/api/telegram-users?filters[telegram_id][$eq]=${queryArg.userId}`,
+                url: `${REACT_APP_API_ENDPOINT}/api/telegram-users?filters[telegram_id][$eq]=${queryArg.telegram_id}`,
                 method: 'GET',
             }),
             transformResponse: (response: TClientResponse) => response,
@@ -55,10 +54,11 @@ const clientApi = baseApi.injectEndpoints({
                 method: 'POST',
                 body: {
                     data: {
-                        id: queryArg.id,
+                        telegram_id: String(queryArg.telegram_id),
                         first_name: queryArg.first_name,
                         last_name: queryArg.last_name,
                         username: queryArg.username,
+                        clicks: 0,
                     }
                 },
             }),

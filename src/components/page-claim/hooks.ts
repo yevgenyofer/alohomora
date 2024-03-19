@@ -6,23 +6,23 @@ import { skipToken } from '@reduxjs/toolkit/query';
 
 
 const DUMMY_USER: TCreateClientArgs = {
-    id: 1234567,
+    telegram_id: 1234567,
     first_name: "Dummy",
     last_name: "User",
     username: "dummyuser",
 };
 
-const LOCAL_STORAGE_KEY = `w-claim/balance-${DUMMY_USER.id}`
+const LOCAL_STORAGE_KEY = 'balance'
 
 
 export const usePageClaimApi = () => {
     const [impactOccurred, notificationOccurred, selectionChanged] = useHapticFeedback();
     const [initDataUnsafe] = useInitData();
 
-    const tgUser = initDataUnsafe?.user || DUMMY_USER;
+    const tgUserId = initDataUnsafe?.user?.id || DUMMY_USER.telegram_id;
 
     // TODO: Create error notification
-    const  {data, isLoading, isError, isSuccess}  = useGetClientQuery(tgUser.id ? {userId: tgUser.id} : skipToken);
+    const  {data, isLoading, isError, isSuccess}  = useGetClientQuery(tgUserId ? {telegram_id: tgUserId} : skipToken);
     const user = data?.data;
     const [createClient, createClientState ] = useCreateClientMutation();
     const [updateClient] = useUpdateClientMutation();
