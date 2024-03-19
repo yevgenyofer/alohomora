@@ -1,33 +1,22 @@
 import React from 'react';
 
-import { useHapticFeedback, useInitData  } from '@vkruglikov/react-telegram-web-app';
-import { TCreateClientArgs, useCreateClientMutation, useGetClientQuery, useUpdateClientMutation } from '../feature/users';
-import { skipToken } from '@reduxjs/toolkit/query';
+import { useHapticFeedback  } from '@vkruglikov/react-telegram-web-app';
+import { useUpdateClientMutation } from '../feature/users';
+import { UserContext } from '../contexts/user-context';
 
 
-const DUMMY_USER: TCreateClientArgs = {
-    telegram_id: 1234567,
-    first_name: "Dummy",
-    last_name: "User",
-    username: "dummyuser",
-};
 
 const LOCAL_STORAGE_KEY = 'balance'
 
 
 export const usePageClaimApi = () => {
-    const [impactOccurred, notificationOccurred, selectionChanged] = useHapticFeedback();
-    const [initDataUnsafe] = useInitData();
+    const [impactOccurred] = useHapticFeedback();
 
-    const tgUserId = initDataUnsafe?.user?.id || DUMMY_USER.telegram_id;
+    const { user, isLoading, isSuccess  } = React.useContext(UserContext);
 
-    // TODO: Create error notification
-    const  {data, isLoading, isError, isSuccess}  = useGetClientQuery(tgUserId ? {telegram_id: tgUserId} : skipToken);
-    const user = data?.data;
-    const [createClient, createClientState ] = useCreateClientMutation();
     const [updateClient] = useUpdateClientMutation();
 
-    const clicks = user?.[0]?.attributes?.clicks;
+    const clicks = user?.data?.[0]?.attributes?.clicks;
     const currentBalanceLS = window.localStorage.getItem(LOCAL_STORAGE_KEY);
     const currentBalance = currentBalanceLS || clicks || 0;
 
@@ -39,16 +28,6 @@ export const usePageClaimApi = () => {
      * add user to database
      */ 
     React.useEffect(() => {
-        if (user?.length === 0 && isSuccess) {
-            createClient(DUMMY_USER).unwrap()
-            .then(() => {
-                console.warn('Client created successfully')
-            }).catch((e) => {
-                console.warn(e);
-            })
-        }
-
-
         /**
          *  If previous balance didn't add to db (issue with internet connection or page reload)
          *  update user balance with value from local storage
@@ -61,7 +40,7 @@ export const usePageClaimApi = () => {
         }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    } ,[createClient, user, isSuccess]);
+    } ,[isLoading, user, isSuccess]);
 
     // Update balance with debounce
     React.useEffect(() => {
@@ -78,8 +57,8 @@ export const usePageClaimApi = () => {
     }, [debouncedValue]);
 
     function handleUpdateClient () {
-        if(user?.[0] && currentBalance) {
-            const {id, attributes} = user?.[0];
+        if (user?.data[0] && currentBalance) {
+            const {id, attributes} = user?.data[0];
 
             const data = {
                 telegram_id: attributes.telegram_id,
@@ -108,7 +87,7 @@ export const usePageClaimApi = () => {
     };
 
     return {
-        isLoading: isLoading || createClientState.isLoading,
+        isLoading,
         balance: currentBalance,
         user,
         onBalanceChange: handleBalanceChange,

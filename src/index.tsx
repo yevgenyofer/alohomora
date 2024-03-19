@@ -10,6 +10,7 @@ import './index.css';
 import Wrapper from './components/wrapper';
 import { store } from './store';
 import { Provider } from 'react-redux';
+import { UserProvider } from './components/contexts/user-context';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -21,9 +22,12 @@ const App = () => {
   return (
     <WebAppProvider options={{ smoothButtonsTransition }}>
         <Provider store={store}>
-      <Wrapper
-        onChangeTransition={() => setSmoothButtonsTransition(state => !state)}
-      />
+        <UserProvider>
+          <Wrapper
+          onChangeTransition={() => setSmoothButtonsTransition(state => !state)}
+        />
+        </UserProvider>
+     
       </Provider>
     </WebAppProvider>
   );
