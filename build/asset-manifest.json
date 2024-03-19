@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/alohomora/static/css/main.df18217e.css",
-    "main.js": "/alohomora/static/js/main.50ea4767.js",
+    "main.css": "/alohomora/static/css/main.f58766a7.css",
+    "main.js": "/alohomora/static/js/main.f28e17f1.js",
     "static/media/icon-2.svg": "/alohomora/static/media/icon-2.75bbaeaf5e1e334e46fcc19a5d0607b5.svg",
     "static/media/jackpot.jpg": "/alohomora/static/media/jackpot.e6947f4e15af040b3bec.jpg",
     "static/media/icon-3.svg": "/alohomora/static/media/icon-3.9643233ed628d6e2611a3a48d633d3fa.svg",
@@ -17,15 +17,15 @@
     "static/media/placeholder-1.svg": "/alohomora/static/media/placeholder-1.4e49d77c1947bdcfa0659d6fd1b380cb.svg",
     "static/media/w-coin.svg": "/alohomora/static/media/w-coin.d70607fedfe252e05aaf471872960faf.svg",
     "static/media/icon-4.svg": "/alohomora/static/media/icon-4.58607688157b03258b0b30e1bb22c71f.svg",
-    "static/media/Setting.svg": "/alohomora/static/media/Setting.095df4ae31569fd890a32d6a8dbb7248.svg",
-    "static/media/Wallet.svg": "/alohomora/static/media/Wallet.47c0370ca4759e796c7aaee1ab0bfd33.svg",
+    "static/media/setting.svg": "/alohomora/static/media/setting.095df4ae31569fd890a32d6a8dbb7248.svg",
+    "static/media/wallet.svg": "/alohomora/static/media/wallet.47c0370ca4759e796c7aaee1ab0bfd33.svg",
     "index.html": "/alohomora/index.html",
-    "static/media/Discovery.svg": "/alohomora/static/media/Discovery.b74f68931cde8baa380c6217165679a2.svg",
-    "main.df18217e.css.map": "/alohomora/static/css/main.df18217e.css.map",
-    "main.50ea4767.js.map": "/alohomora/static/js/main.50ea4767.js.map"
+    "static/media/discovery.svg": "/alohomora/static/media/discovery.b74f68931cde8baa380c6217165679a2.svg",
+    "main.f58766a7.css.map": "/alohomora/static/css/main.f58766a7.css.map",
+    "main.f28e17f1.js.map": "/alohomora/static/js/main.f28e17f1.js.map"
   },
   "entrypoints": [
-    "static/css/main.df18217e.css",
-    "static/js/main.50ea4767.js"
+    "static/css/main.f58766a7.css",
+    "static/js/main.f28e17f1.js"
   ]
 }
