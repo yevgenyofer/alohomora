@@ -1,17 +1,14 @@
-import React, { FC, useState } from 'react';
+import React from 'react';
 
 import { useHapticFeedback } from '@vkruglikov/react-telegram-web-app';
+import { Wizard } from 'react-use-wizard';
 
-import { Wizard, useWizard } from 'react-use-wizard';
+import {StakingStep1, StakingStep2,StakingStep3, StakingStep4} from './steps';
 
-import StakingStep1 from './StakingStep1';
-import StakingStep2 from './StakingStep2';
-import StakingStep3 from './StakingStep3';
-import StakingStep4 from './StakingStep4';
+const bg = require('../../img/staking-bg.jpg') as string;
 
-const bg = require('./staking-bg.jpg') as string;
 
-const PageStaking: FC<{}> = () => {
+export const PageStaking: React.FC = () => {
 
   // const handleIncrement = () => {
   //   impactOccurred('heavy');
@@ -36,5 +33,3 @@ const PageStaking: FC<{}> = () => {
     </div>
   );
 };
-
-export default PageStaking;

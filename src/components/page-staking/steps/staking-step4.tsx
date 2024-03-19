@@ -1,17 +1,17 @@
-import React, { FC, useState } from 'react';
+import React from 'react';
 
 import { useHapticFeedback } from '@vkruglikov/react-telegram-web-app';
 import { useWizard } from 'react-use-wizard';
 import { useNavigate } from 'react-router-dom';
 
 
-const bg = require('./placeholder-1.svg').default as string;
+const bg = require('./img/placeholder-1.svg').default as string;
 
 // interface StakingStep1Props {
 //   nextStep: () => void;
 // }
 
-const StakingStep4: FC = ({}) => {
+export const StakingStep4: React.FC = () => {
 
   // const handleIncrement = () => {
   //   impactOccurred('heavy');
@@ -63,5 +63,3 @@ const StakingStep4: FC = ({}) => {
     </>
   );
 };
-
-export default StakingStep4;

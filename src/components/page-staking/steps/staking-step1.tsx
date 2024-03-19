@@ -1,15 +1,15 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { useHapticFeedback } from '@vkruglikov/react-telegram-web-app';
 import { useWizard } from 'react-use-wizard';
 
-const placeholder = require('./staking-placeholder.svg').default as string;
+const placeholder = require('./img/staking-placeholder.svg').default as string;
 
 // interface StakingStep1Props {
 //   nextStep: () => void;
 // }
 
-const StakingStep1: FC = ({}) => {
+export const StakingStep1: React.FC = () => {
 
   // const handleIncrement = () => {
   //   impactOccurred('heavy');
@@ -29,5 +29,3 @@ const StakingStep1: FC = ({}) => {
     </>
   );
 };
-
-export default StakingStep1;

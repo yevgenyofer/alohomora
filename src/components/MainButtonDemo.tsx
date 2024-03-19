@@ -5,6 +5,7 @@ import {
   MainButtonProps,
 } from '@vkruglikov/react-telegram-web-app';
 
+// TODO: delete file
 const MainButtonDemo: FC<{
   initialValues?: Partial<MainButtonProps> & { show?: boolean };
 }> = ({ initialValues }) => {

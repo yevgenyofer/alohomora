@@ -1,6 +1,7 @@
 import { Button, Form, Typography } from 'antd';
 import { useExpand } from '@vkruglikov/react-telegram-web-app';
 
+// TODO: delete file
 const ExpandDemo = () => {
   const [isExpanded, expand] = useExpand();
 
