@@ -12,17 +12,12 @@ const DUMMY_USER: TCreateClientArgs = {
     username: "dummyuser",
 };
 
-const LOCAL_STORAGE_KEY = 'w-claim/balance'
+const LOCAL_STORAGE_KEY = `w-claim/balance-${DUMMY_USER.id}`
 
 
 export const usePageClaimApi = () => {
     const [impactOccurred, notificationOccurred, selectionChanged] = useHapticFeedback();
     const [initDataUnsafe] = useInitData();
-
-    const [debouncedValue, setDebouncedValue] = React.useState<string | null>(null);
-    const timerRef = React.useRef<any>();
-    const currentBalanceLS = window.localStorage.getItem(LOCAL_STORAGE_KEY);
-    const [_, setBalance] = React.useState<number>(0)
 
     const tgUser = initDataUnsafe?.user || DUMMY_USER;
 
@@ -31,11 +26,17 @@ export const usePageClaimApi = () => {
     const user = data?.data;
     const [createClient, createClientState ] = useCreateClientMutation();
     const [updateClient] = useUpdateClientMutation();
-    
+
+    const clicks = user?.[0]?.attributes?.clicks;
+    const currentBalanceLS = window.localStorage.getItem(LOCAL_STORAGE_KEY);
+    const currentBalance = currentBalanceLS || clicks || 0;
+
+    const [debouncedValue, setDebouncedValue] = React.useState<string | null | number| undefined>(currentBalance);
+    const timerRef = React.useRef<any>();
 
     /**
-     * if current user doesn't exist in db
-     * add user in db
+     * if the current user does not exist in the database
+     * add user to database
      */ 
     React.useEffect(() => {
         if (user?.length === 0 && isSuccess) {
@@ -47,67 +48,69 @@ export const usePageClaimApi = () => {
             })
         }
 
+
+        /**
+         *  If previous balance didn't add to db (issue with internet connection or page reload)
+         *  update user balance with value from local storage
+         */ 
+        if (clicks && currentBalanceLS) {
+            if (Number(currentBalanceLS) > Number(clicks)) {
+                handleUpdateClient();
+            }
+
+        }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
     } ,[createClient, user, isSuccess]);
-  
-    React.useEffect(() => {
-        const clicks = user?.[0].attributes?.clicks;
 
-        const currentBalance = currentBalanceLS ?? clicks;
-        
-
-        if (currentBalance && Number(currentBalance) > 0) {
-            window.localStorage.setItem(LOCAL_STORAGE_KEY, currentBalance.toString());
-            setBalance(Number(currentBalance));
-        }
-    } ,[isSuccess, user]);
-
-    // Update balance
+    // Update balance with debounce
     React.useEffect(() => {
         clearTimeout(timerRef.current);
 
-        if (debouncedValue) {
-            timerRef.current = setTimeout(() => {
-                if(user?.[0]?.attributes && currentBalanceLS) {
-                    const {id, attributes} = user[0];
-
-                    const data = {
-                        telegram_id: attributes.telegram_id,
-                        first_name:  attributes.first_name,
-                        last_name: attributes.last_name,
-                        username: attributes.username,
-                        clicks: Number(currentBalanceLS),
-                        id,
-                    }
-
-                    updateClient(data).unwrap()
-                        .then(() => {
-                            console.log(`User updated: ${data}`);
-                        }).catch((e) => {
-                            console.warn(e)
-                        })
-                }
-            }, 1000);
-        }
+        timerRef.current = setTimeout(() => {
+            handleUpdateClient();
+        }, 3000);
 
         return () => {
             clearTimeout(timerRef.current);
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [debouncedValue]);
 
+    function handleUpdateClient () {
+        if(user?.[0] && currentBalance) {
+            const {id, attributes} = user?.[0];
 
-    const handleInputChange = () => {
+            const data = {
+                telegram_id: attributes.telegram_id,
+                first_name:  attributes.first_name,
+                last_name: attributes.last_name,
+                username: attributes.username,
+                clicks: Number(currentBalance),
+                id,
+            }
+
+            updateClient(data).unwrap()
+                .then(() => {
+                    console.log(`User updated: ${data}`);
+                }).catch((e) => {
+                    console.warn(e)
+                })
+        }
+    }
+
+    const handleBalanceChange = () => {
         impactOccurred('heavy');
-        const nextBalance = (Number(currentBalanceLS) + 1).toString();
-        
+        const nextBalance = (Number(currentBalance) + 1).toString();
+
         window.localStorage.setItem(LOCAL_STORAGE_KEY, nextBalance);
         setDebouncedValue(nextBalance);
     };
 
     return {
         isLoading: isLoading || createClientState.isLoading,
-        balance: currentBalanceLS,
+        balance: currentBalance,
         user,
-        onBalanceChange: handleInputChange,
+        onBalanceChange: handleBalanceChange,
     }
 }
