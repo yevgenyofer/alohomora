@@ -30,8 +30,8 @@ const DUMMY_USER: TCreateClientArgs = {
 
 
 export const UserProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+    
     const [initDataUnsafe] = useInitData();
-
 
     const tgUserId = initDataUnsafe?.user?.id || DUMMY_USER.telegram_id;
 
@@ -40,10 +40,32 @@ export const UserProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
     const user = data?.data;
     const [createClient, createClientState ] = useCreateClientMutation();
 
-
+     /**
+     * if the current user does not exist in the database
+     * add user to database
+     */ 
     React.useEffect(() => {
         if (user?.length === 0 && isSuccess) {
-            createClient(DUMMY_USER).unwrap()
+            const userData = {} as TCreateClientArgs;
+            if (initDataUnsafe?.user) {
+                userData.telegram_id = initDataUnsafe.user.id;
+                userData.first_name = initDataUnsafe.user.first_name || '';
+                userData.last_name = initDataUnsafe.user.last_name || '';
+                userData.username = initDataUnsafe.user.username || '';
+            } else {
+                userData.telegram_id = DUMMY_USER.telegram_id;
+                userData.first_name = DUMMY_USER.first_name;
+                userData.last_name = DUMMY_USER.last_name;
+                userData.username = DUMMY_USER.username;
+            }
+            createClient(
+                {
+                    telegram_id: userData.telegram_id,
+                    first_name: userData.first_name,
+                    last_name: userData.last_name,
+                    username: userData.username,
+                }
+            ).unwrap()
             .then(() => {
                 console.warn('Client created successfully')
             }).catch((e) => {

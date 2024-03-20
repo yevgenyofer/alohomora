@@ -23,10 +23,6 @@ export const usePageClaimApi = () => {
     const [debouncedValue, setDebouncedValue] = React.useState<string | null | number| undefined>(currentBalance);
     const timerRef = React.useRef<any>();
 
-    /**
-     * if the current user does not exist in the database
-     * add user to database
-     */ 
     React.useEffect(() => {
         /**
          *  If previous balance didn't add to db (issue with internet connection or page reload)
