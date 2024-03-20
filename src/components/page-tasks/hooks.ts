@@ -52,10 +52,14 @@ export const usePageTasksApi = () => {
     const [tasks, setTasks] = useState(TASKS);
 
     useEffect(() => {
-        tasks[0].is_done = user?.data[0]?.attributes.is_task_1_done || false;
-        tasks[1].is_done = user?.data[0]?.attributes.is_task_2_done || false;
-        tasks[2].is_done = user?.data[0]?.attributes.is_task_3_done || false;
-        tasks[3].is_done = user?.data[0]?.attributes.is_task_4_done || false;
+        if (user?.data[0]) {
+            const newTasks = [...tasks];
+            newTasks[0].is_done = user.data[0].attributes.is_task_1_done || false;
+            newTasks[1].is_done = user.data[0].attributes.is_task_2_done || false;
+            newTasks[2].is_done = user.data[0].attributes.is_task_3_done || false;
+            newTasks[3].is_done = user.data[0].attributes.is_task_4_done || false;
+            setTasks(newTasks);
+        }
     }, [user, tasks]);
 
     const [updateClient] = useUpdateClientMutation();
