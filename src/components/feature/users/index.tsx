@@ -81,7 +81,12 @@ const clientApi = baseApi.injectEndpoints({
                         first_name: queryArg.first_name,
                         last_name: queryArg.last_name,
                         username: queryArg.username,
-                        clicks: queryArg.clicks
+                        clicks: queryArg.clicks,
+                        referred_by: queryArg.referred_by,
+                        is_task_1_done: queryArg.is_task_1_done,
+                        is_task_2_done: queryArg.is_task_2_done,
+                        is_task_3_done: queryArg.is_task_3_done,
+                        is_task_4_done: queryArg.is_task_4_done,
                     }
                 },
             }),
