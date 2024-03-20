@@ -57,6 +57,13 @@ export const usePageTasksApi = () => {
 
     const webApp = useWebApp();
 
+    const handleCompleteTask = (index: number) => {
+        const newTasks = [...tasks];
+        newTasks[index].is_done = true;
+        setTasks(newTasks);
+        webApp.openExternalLink(newTasks[index].link);
+    }
+
     const handleTaskClick = (index: number) => {
         impactOccurred('medium');
         const newTasks = [...tasks];
@@ -65,17 +72,17 @@ export const usePageTasksApi = () => {
             message: `You are about to complete the task: ${newTasks[index].title}.`,
             buttons: [
                 {
+                    id: '1',
                     text: 'Cancel',
                     onPress: () => console.log('Cancel'),
                 },
                 {
+                    id: '2',
                     text: 'Complete',
-                    onPress: () => webApp.openLink(newTasks[index].link),
+                    onPress: () => handleCompleteTask(index),
                 },
             ],
         });
-        newTasks[index].is_done = true;
-        setTasks(newTasks);
     }
 
     return {
