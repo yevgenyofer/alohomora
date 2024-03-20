@@ -67,22 +67,25 @@ export const usePageTasksApi = () => {
     const handleTaskClick = (index: number) => {
         impactOccurred('medium');
         const newTasks = [...tasks];
-        showPopup({
-            title: 'Task',
-            message: `You are about to complete the task: ${newTasks[index].title}.`,
-            buttons: [
-                {
-                    id: '1',
-                    text: 'Cancel',
-                    onPress: () => console.log('Cancel'),
-                },
-                {
-                    id: '2',
-                    text: 'Complete',
-                    onPress: () => handleCompleteTask(index),
-                },
-            ],
-        });
+        newTasks[index].is_done = true;
+        setTasks(newTasks);
+        webApp.openExternalLink(newTasks[index].link);
+        // showPopup({
+        //     title: 'Task',
+        //     message: `You are about to complete the task: ${newTasks[index].title}.`,
+        //     buttons: [
+        //         {
+        //             id: '1',
+        //             text: 'Cancel',
+        //             onPress: () => console.log('Cancel'),
+        //         },
+        //         {
+        //             id: '2',
+        //             text: 'Complete',
+        //             onPress: () => handleCompleteTask(index),
+        //         },
+        //     ],
+        // });
     }
 
     return {
