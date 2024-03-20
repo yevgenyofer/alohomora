@@ -61,31 +61,44 @@ export const usePageTasksApi = () => {
         const newTasks = [...tasks];
         newTasks[index].is_done = true;
         setTasks(newTasks);
-        webApp.openExternalLink(newTasks[index].link);
+        console.log(newTasks[index].link);
+        webApp.openLink(newTasks[index].link);
     }
+
+    // showPopup({
+    //     title: 'Title',
+    //     message: 'Some message',
+    //     buttons: [
+    //         {id: 'link', type: 'default', text: 'Open ton.org'},
+    //         {type: 'cancel'},
+    //     ]
+    // }, function(btn) {
+    //     if (btn === 'link') {
+    //         Telegram.WebApp.openLink('https://ton.org/');
+    //     }
+    // });
 
     const handleTaskClick = (index: number) => {
         impactOccurred('medium');
         const newTasks = [...tasks];
-        newTasks[index].is_done = true;
-        setTasks(newTasks);
-        webApp.openExternalLink(newTasks[index].link);
-        // showPopup({
-        //     title: 'Task',
-        //     message: `You are about to complete the task: ${newTasks[index].title}.`,
-        //     buttons: [
-        //         {
-        //             id: '1',
-        //             text: 'Cancel',
-        //             onPress: () => console.log('Cancel'),
-        //         },
-        //         {
-        //             id: '2',
-        //             text: 'Complete',
-        //             onPress: () => handleCompleteTask(index),
-        //         },
-        //     ],
-        // });
+        showPopup({
+            title: 'Task',
+            message: `You are about to complete the task: ${newTasks[index].title}.`,
+            buttons: [
+                {
+                    id: '1',
+                    text: 'Cancel',
+                },
+                {
+                    id: '2',
+                    text: 'Complete',
+                },
+            ],
+        }).then((btnId) => {
+            if (btnId === '2') {
+                handleCompleteTask(index);
+            }
+        });
     }
 
     return {
