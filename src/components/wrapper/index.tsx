@@ -2,7 +2,6 @@ import React, { FC, DispatchWithoutAction } from 'react';
 
 import { ConfigProvider, theme } from 'antd';
 
-
 import { Routers } from '../routers';
 import { useWrapperApi } from './hooks';
 import { BackButton } from '@vkruglikov/react-telegram-web-app';
@@ -13,7 +12,12 @@ const Wrapper: FC<{
 
   const {colorScheme, themeParams } = useWrapperApi();
 
-
+  const handleBackButtonClick = () => {
+    // navigate to main page
+    onChangeTransition();
+    window.location.hash = '/';
+  }
+  
   return (
     <div>
       <ConfigProvider
@@ -34,7 +38,7 @@ const Wrapper: FC<{
         }
       >
         <Routers />
-        <BackButton />
+        <BackButton onClick={() => handleBackButtonClick()} />
       </ConfigProvider>
     </div>
   );

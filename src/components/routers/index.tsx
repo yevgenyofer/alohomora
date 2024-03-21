@@ -9,7 +9,6 @@ import {PageStaking} from '../page-staking';
 import {PageDashboard} from '../page-dashboard';
 import {PageJackpot} from '../page-jackpot';
 
-
 const ROUTES = {
   MAIN: {
     PATH:'/',
@@ -41,7 +40,9 @@ const ROUTES = {
   },
 };
 
-export const Routers:React.FC = () => (
+
+export const Routers:React.FC = () => {
+  return (  
     <HashRouter>
       <Routes>
         <Route path={ROUTES.MAIN.PATH} element={ROUTES.MAIN.COMPONENT} />
@@ -54,4 +55,5 @@ export const Routers:React.FC = () => (
         <Route path={ROUTES.OTHER.PATH} element={ROUTES.OTHER.COMPONENT} />
       </Routes>
   </HashRouter>
-)
+  );
+};
