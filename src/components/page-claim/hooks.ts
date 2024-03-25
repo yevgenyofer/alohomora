@@ -15,17 +15,10 @@ export const usePageClaimApi = () => {
 
     const clicks = user?.data?.[0]?.attributes?.clicks;
     const currentBalanceLS = window.localStorage.getItem(LOCAL_STORAGE_KEY);
-    let currentBalance: string | null | number | undefined;
-
-    if (user?.data?.[0]?.attributes?.need_to_refresh_ls === true) {
-        currentBalance = clicks || 0;
-        window.localStorage.setItem(LOCAL_STORAGE_KEY, String(currentBalance));
-    } else {
-        currentBalance = currentBalanceLS || clicks || 0;
-    }
+    let currentBalance = Number(currentBalanceLS) || clicks || 0;
     
 
-    const [debouncedValue, setDebouncedValue] = React.useState<string | null | number| undefined>(currentBalance);
+    const [debouncedValue, setDebouncedValue] = React.useState<number>(currentBalance);
     const timerRef = React.useRef<any>();
 
     React.useEffect(() => {
@@ -38,6 +31,11 @@ export const usePageClaimApi = () => {
                 handleUpdateClient();
             }
 
+            if (user?.data[0]?.attributes?.need_to_refresh_ls === true) {
+                currentBalance = Number(user?.data[0]?.attributes?.clicks);
+                window.localStorage.setItem(LOCAL_STORAGE_KEY, String(currentBalance));
+                handleUpdateClient();
+            }
         }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -79,9 +77,8 @@ export const usePageClaimApi = () => {
     const handleBalanceChange = () => {
         impactOccurred('heavy');
         const nextBalance = (Number(currentBalance) + 1).toString();
-
         window.localStorage.setItem(LOCAL_STORAGE_KEY, nextBalance);
-        setDebouncedValue(nextBalance);
+        setDebouncedValue(Number(nextBalance));
     };
 
     return {
