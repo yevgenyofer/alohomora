@@ -60,7 +60,8 @@ export const usePageTasksApi = () => {
             newTasks[3].is_done = user.data[0].attributes.is_task_4_done || false;
             setTasks(newTasks);
         }
-    }, [user, tasks]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user]);
 
     const [updateClient] = useUpdateClientMutation();
 

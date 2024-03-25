@@ -17,13 +17,14 @@ export const PageClaim: React.FC = () => {
     <div className="page page-claim">
       <Header />
       <div className="content">
-        <div className="box balance">
-          <span>W-Balance:</span>
-          <h1>{balance}</h1>
-        </div>
+        {user && (
+          <div className="box balance">
+            <span>Hi, {user.data[0].attributes.username}, your W-Balance:</span>
+            <h1>{balance}</h1>
+          </div>
+        )}
         <div className="box claim">
           {/* <span>Next drop available in 52:23</span> */}
-          <span>{JSON.stringify(user)}</span>
           <br />
           <button className="main-button" onClick={onBalanceChange}>Claim</button>
         </div>

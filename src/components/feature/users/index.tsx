@@ -12,6 +12,12 @@ type TAttributes = {
     is_task_2_done?: boolean;
     is_task_3_done?: boolean;
     is_task_4_done?: boolean;
+    claims?: TClaim[];
+}
+
+export type TClaim = {
+    clicks: number;
+    percentage: number;
 }
 
 export type TUser = {
@@ -87,6 +93,7 @@ const clientApi = baseApi.injectEndpoints({
                         is_task_2_done: queryArg.is_task_2_done,
                         is_task_3_done: queryArg.is_task_3_done,
                         is_task_4_done: queryArg.is_task_4_done,
+                        claims: queryArg.claims,
                     }
                 },
             }),

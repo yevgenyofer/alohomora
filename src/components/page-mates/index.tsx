@@ -5,7 +5,13 @@ const bg = require('./img/mates-bg.jpg') as string;
 
 export const PageMates: FC<{}> = () => {
 
-  const {isLoading, mates, user} = usePageMatesApi();
+  const {isLoading, mates, rewardLevel, handleClaim, user} = usePageMatesApi();
+
+  console.log(mates)
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="page page-1" style={{ backgroundImage: `url(${bg})` }}>
@@ -15,16 +21,18 @@ export const PageMates: FC<{}> = () => {
         <p>
           Bring friends, earn more!
           <br />
-          Each new friend nets you <b>50</b> W-Coins plus <b>1%</b> of their rewards.
+          You're on <b>{rewardLevel.title}</b>.
+          <br />
+          Each new friend nets you <b>{rewardLevel.oneTimeReward}</b> W-Coins plus <b>{rewardLevel.rewardPercentage}%</b> of their rewards.
         </p>
         <div className="list">
-          <h2>My Mates</h2>
+          <h2>My Mates ({mates.length})</h2>
           <div className="items">
             {mates.length && mates.map((mate, index) => (
               <div className="item" key={index}>
-                <img src="https://random.imagecdn.app/65/65" alt="" />
                 <div className="username">{mate.username}</div>
-                <div className="balance">{mate.balance} W-Coins</div>
+                {(!mate.availableReward || mate.availableReward == 0) && <div className="balance">0 W-Coins</div>}
+                {mate.availableReward > 0 && <button className="claim" onClick={() => handleClaim(mate, rewardLevel.rewardPercentage)}>CLAIM {mate.availableReward} W-Coins</button>}
               </div>
             ))}
           </div>
