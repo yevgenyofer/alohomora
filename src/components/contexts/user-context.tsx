@@ -35,6 +35,8 @@ export const UserProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
 
     const tgUserId = initDataUnsafe?.user?.id || DUMMY_USER.telegram_id;
 
+    console.log('tgUserId', tgUserId);
+
     // TODO: Create error notification
     const  {data, isLoading, isError, isSuccess}  = useGetClientQuery(tgUserId ? {telegram_id: tgUserId} : skipToken);
     const user = data?.data;
