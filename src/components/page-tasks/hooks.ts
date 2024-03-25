@@ -76,7 +76,8 @@ export const usePageTasksApi = () => {
             const data = {
                 id: user.data[0].id,
                 [attribute]: true,
-                clicks: (Number(user.data[0].attributes.clicks) ?? 0) + Number(tasks[index].reward)
+                clicks: (Number(user.data[0].attributes.clicks) ?? 0) + Number(tasks[index].reward),
+                need_to_refresh_ls: true,
             }
             updateClient(data).unwrap()
                 .then(() => {
