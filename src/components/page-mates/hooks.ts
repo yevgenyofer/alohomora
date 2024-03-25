@@ -92,7 +92,7 @@ export const usePageMatesApi = () => {
         if (user) {
             updateClient({id: mate.id, claims: newClaims}).unwrap()
                 .then(() => {
-                    updateClient({id: user?.data[0].id, clicks: newClicks}).unwrap()
+                    updateClient({id: user?.data[0].id, clicks: newClicks, need_to_refresh_ls: true}).unwrap()
                         .then((data) => {
                             console.log(data);
                             window.location.reload();

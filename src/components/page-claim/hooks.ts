@@ -15,7 +15,15 @@ export const usePageClaimApi = () => {
 
     const clicks = user?.data?.[0]?.attributes?.clicks;
     const currentBalanceLS = window.localStorage.getItem(LOCAL_STORAGE_KEY);
-    const currentBalance = currentBalanceLS || clicks || 0;
+    let currentBalance: string | null | number | undefined;
+
+    if (user?.data?.[0]?.attributes?.need_to_refresh_ls === true) {
+        currentBalance = clicks || 0;
+        window.localStorage.setItem(LOCAL_STORAGE_KEY, String(currentBalance));
+    } else {
+        currentBalance = currentBalanceLS || clicks || 0;
+    }
+    
 
     const [debouncedValue, setDebouncedValue] = React.useState<string | null | number| undefined>(currentBalance);
     const timerRef = React.useRef<any>();
@@ -56,6 +64,7 @@ export const usePageClaimApi = () => {
             const data = {
                 clicks: Number(currentBalance),
                 id,
+                need_to_refresh_ls: false,
             }
 
             updateClient(data).unwrap()

@@ -13,6 +13,7 @@ type TAttributes = {
     is_task_3_done?: boolean;
     is_task_4_done?: boolean;
     claims?: TClaim[];
+    need_to_refresh_ls?: boolean;
 }
 
 export type TClaim = {
@@ -94,6 +95,7 @@ const clientApi = baseApi.injectEndpoints({
                         is_task_3_done: queryArg.is_task_3_done,
                         is_task_4_done: queryArg.is_task_4_done,
                         claims: queryArg.claims,
+                        need_to_refresh_ls: queryArg.need_to_refresh_ls,
                     }
                 },
             }),
