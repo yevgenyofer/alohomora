@@ -76,7 +76,7 @@ export const usePageTasksApi = () => {
             const data = {
                 id: user.data[0].id,
                 [attribute]: true,
-                clicks: (user.data[0].attributes.clicks ?? 0) + tasks[index].reward
+                clicks: (Number(user.data[0].attributes.clicks) ?? 0) + Number(tasks[index].reward)
             }
             updateClient(data).unwrap()
                 .then(() => {
