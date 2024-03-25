@@ -4,10 +4,7 @@ import { useHapticFeedback  } from '@vkruglikov/react-telegram-web-app';
 import { useUpdateClientMutation } from '../feature/users';
 import { UserContext } from '../contexts/user-context';
 
-
-
 const LOCAL_STORAGE_KEY = 'balance'
-
 
 export const usePageClaimApi = () => {
     const [impactOccurred] = useHapticFeedback();
@@ -54,13 +51,9 @@ export const usePageClaimApi = () => {
 
     function handleUpdateClient () {
         if (user?.data[0] && currentBalance) {
-            const {id, attributes} = user?.data[0];
+            const {id} = user?.data[0];
 
             const data = {
-                telegram_id: attributes.telegram_id,
-                first_name:  attributes.first_name,
-                last_name: attributes.last_name,
-                username: attributes.username,
                 clicks: Number(currentBalance),
                 id,
             }

@@ -19,7 +19,7 @@ export const PageClaim: React.FC = () => {
       <div className="content">
         {user && (
           <div className="box balance">
-            {user && user.data[0].attributes.username && (
+            {user?.data[0] && (
               <span>Hi, {user.data[0].attributes.username}, your W-Balance:</span>
             )}
             <h1>{balance}</h1>
