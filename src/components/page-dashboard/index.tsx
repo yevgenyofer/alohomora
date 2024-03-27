@@ -3,6 +3,8 @@ import React from 'react';
 import { useHapticFeedback } from '@vkruglikov/react-telegram-web-app';
 import { useNavigate } from 'react-router-dom';
 
+import './index.scss';
+
 const bg = require('../../img/staking-bg.jpg') as string;
 const contentBg = require('./img/dashboard-bg.svg').default as string;
 

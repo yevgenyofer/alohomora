@@ -6,6 +6,7 @@ import icon1 from './img/discovery.svg';
 import icon2 from './img/wallet.svg';
 import icon3 from './img/setting.svg';
 
+import './index.scss';
 
 export const Header: React.FC<{}> = () => {
   return (

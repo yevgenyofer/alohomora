@@ -37,7 +37,7 @@ export const UserProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
 
     // TODO: Create error notification
     const  {data, isLoading, isError, isSuccess}  = useGetClientQuery(tgUserId ? {telegram_id: tgUserId} : skipToken);
-    const user = data?.data;
+        const user = data?.data;
     const [createClient, createClientState ] = useCreateClientMutation();
 
      /**

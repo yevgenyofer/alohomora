@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { Task } from './task';
 import { usePageTasksApi } from './hooks';
 
+import './index.scss';
+
 const bg = require('./img/tasks-bg.jpg') as string;
 
 export const PageTasks: FC<{}> = () => {

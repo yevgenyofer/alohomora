@@ -1,0 +1,94 @@
+.page, .page-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    max-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    padding: 50px 25px 25px 25px;
+}
+
+.page-tasks .content {
+    margin-bottom: 50px;
+  }
+  
+  .page-tasks .content .list {
+    border-radius: 20px;
+    background-color: rgba(217, 217, 217, 0.5);
+    max-height: 100%;
+  }
+  
+  .page-tasks .content .list .items {
+    max-height: 100%;
+    height: auto;
+  }
+  
+  .page-tasks .content .list .item {
+    position: relative;
+    background-color: transparent;
+    justify-content: flex-start;
+  }
+  
+  .page-tasks .content .list .item.completed {
+    pointer-events: none;
+  }
+  
+  .page-tasks .content .list .item.completed::after {
+    content: '✅ COMPLETED ✅';
+    position: absolute;
+    text-align: center;
+    line-height: 90px;
+    font-size: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 1;
+  }
+  
+  .page-tasks .flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .page-tasks .list .item {
+    height: auto;
+    margin: 0;
+    padding: 10px;
+  }
+  
+  .page-tasks .list .item img {
+    width: 65px;
+    height: 65px;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+  
+  .page-tasks .list .item .username {
+    margin-right: auto;
+    font-size: 18px;
+  }
+  
+  .page-tasks .list .item .balance {
+    font-size: 14px;
+    margin-right: 15px;
+    color: #565656;
+    font-weight: light;
+  }
+  
+  .page-tasks .list .item .claim {
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #9747FF;
+    font-weight: light;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 0;
+    outline: none;
+  }

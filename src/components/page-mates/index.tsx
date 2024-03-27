@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { usePageMatesApi } from './hooks';
 
+import './index.scss';
+
 const bg = require('./img/mates-bg.jpg') as string;
 
 export const PageMates: FC<{}> = () => {

@@ -1,0 +1,27 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background: var(--header-color);
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    align-items: center;
+  }
+  
+  .header img {
+    width: 25%;
+  }
+  
+  .header .icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .header .icons img {
+    width: 22px;
+    height: 22px;
+    margin: 0 5px;
+    cursor: pointer;
+  }

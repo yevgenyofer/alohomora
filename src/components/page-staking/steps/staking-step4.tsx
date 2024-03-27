@@ -3,6 +3,7 @@ import React from 'react';
 import { useHapticFeedback } from '@vkruglikov/react-telegram-web-app';
 import { useWizard } from 'react-use-wizard';
 import { useNavigate } from 'react-router-dom';
+import './index.scss';
 
 
 const bg = require('./img/placeholder-1.svg').default as string;

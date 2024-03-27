@@ -1,0 +1,106 @@
+.page, .page-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    max-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    padding: 50px 25px 25px 25px;
+}
+
+.page, .page-1 h1 {
+    color: #000000;
+    font-size: 52px;
+    margin-bottom: 0.45rem;
+  }
+  
+  .page-1 p {
+    color: #52544F;
+    font-size: 10px;
+    font-weight: light;
+    text-align: left;
+    line-height: 15px;
+  }
+  
+  .page-1 p b {
+    color: #000000;
+    font-weight: bold;
+  }
+  
+  .page-1 .list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .page-1 .list .items {
+    width: 100%;
+    height: 290px;
+    max-height: 290px;
+    overflow-y: auto;
+  }
+  
+  .page-1 .list h2 {
+    font-size: 24px;
+  }
+  
+  .page-1 .list .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 65px;
+    margin: 10px 0;
+    padding: 25px;
+    border-radius: 20px;
+    background-color: rgba(217, 217, 217, 0.5);
+  }
+  
+  .page-1 .list .item .username {
+    margin-right: auto;
+    font-size: 18px;
+  }
+  
+  .page-1 .list .item .balance {
+    font-size: 14px;
+    margin-right: 15px;
+    color: #565656;
+    font-weight: light;
+  }
+  
+  .page-1 .list .item .claim {
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #9747FF;
+    font-weight: light;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 0;
+    outline: none;
+  }
+
+.page-claim {
+  padding: 0;
+}
+
+.page .content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.page-1 .main-button {
+    width: 100%;
+    color: #ffffff;
+    background-color: #464C72;
+    font-size: 20px;
+    height: auto;
+    padding: 15px 0;
+    border-radius: 20px;
+  }
+  

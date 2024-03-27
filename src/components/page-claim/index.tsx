@@ -4,6 +4,8 @@ import {Header} from '../header';
 import { usePageClaimApi } from './hooks';
 import { Links } from './links';
 
+import './index.scss';
+
 
 export const PageClaim: React.FC = () => {
 
@@ -14,7 +16,7 @@ export const PageClaim: React.FC = () => {
   }
 
   return (
-    <div className="page page-claim">
+    <div className="page-claim">
       <Header />
       <div className="content">
         {user && (
